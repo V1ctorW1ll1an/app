@@ -2,8 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
+import { Heading } from "@chakra-ui/react";
+
 const Home: NextPage = () => {
-    return <h1>hello world!</h1>;
+    return <Heading>hello world!</Heading>;
 };
 
 export default Home;
