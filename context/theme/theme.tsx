@@ -3,6 +3,14 @@
 // 1. import `extendTheme` function
 import { theme, extendTheme, type ThemeConfig } from "@chakra-ui/react";
 
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config";
+
+const tailwind = resolveConfig(tailwindConfig);
+
+// @ts-ignore
+theme.colors.blue = tailwind?.theme?.colors?.blue;
+
 // 2. Add your color mode config
 const config: ThemeConfig = {
     initialColorMode: "dark",
@@ -59,6 +67,20 @@ const fontSizes = {
 
 const colors = {
     ...theme.colors,
+    blue: {
+        ...theme.colors.blue,
+        50: theme.colors.gray[50],
+        100: theme.colors.gray[100],
+    },
+    darkBlue: {
+        ...theme.colors.blue,
+        50: theme.colors.gray[50],
+        500: theme.colors.blue[800],
+        600: theme.colors.blue[700],
+        700: theme.colors.blue[800],
+        800: theme.colors.blue[900],
+        900: theme.colors.blue[900],
+    },
     purple: {
         ...theme.colors.purple,
         500: "#8257e5",

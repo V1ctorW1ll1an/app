@@ -2,7 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
-    return <div>Hello</div>;
+    return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
 };
 
 export default Home;
