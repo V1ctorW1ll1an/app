@@ -15,20 +15,22 @@ const TextField: React.FC<FieldAttributes<{}> & TextFieldProps> = (props) => {
     const textError = meta.error && meta.touched ? meta.error : "";
     const hasError = !!textError;
 
+    const { helpText, label, ...rest } = props;
+
     return (
         <FormControl isInvalid={hasError}>
-            <FormLabel>{props.label ?? ""}</FormLabel>
+            <FormLabel>{label ?? ""}</FormLabel>
             <Field
                 as={Input}
-                name={props.name}
-                placeholder={props.placeholder}
+                name={rest.name}
+                placeholder={rest.placeholder}
                 {...field} // add events blur, change, etc.
-                {...props} // props from FieldAttributes
+                {...rest} // props from FieldAttributes
             />
             {hasError ? (
                 <FormErrorMessage>{textError}</FormErrorMessage>
             ) : (
-                <FormHelperText>{props.helpText}</FormHelperText>
+                <FormHelperText>{helpText ?? ""}</FormHelperText>
             )}
         </FormControl>
     );
